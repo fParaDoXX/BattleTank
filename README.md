@@ -5,4 +5,5 @@ I am a games developer learning c++ by coding games. This is part of a series of
 A tank battle game where you go head to head with other tank using advance system controls and terrains as cover .Coded en c++ and Unreal blueprint
 
 *Intro notes
-*Set up Git With SourceTree
+*Setup Git With SourceTree
+*Setup Unreal Project
