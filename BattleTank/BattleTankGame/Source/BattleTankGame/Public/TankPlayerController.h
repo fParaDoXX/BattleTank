@@ -18,8 +18,9 @@ class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 
 public:
 
-	
-
 	ATank* GetControlledTank() const; 
+
+	//Override Actors begin play
+	void BeginPlay() override;
 
 };
