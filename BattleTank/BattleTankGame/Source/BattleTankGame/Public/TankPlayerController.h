@@ -17,10 +17,22 @@ class BATTLETANKGAME_API ATankPlayerController : public APlayerController
 	
 
 public:
+	// Sets default values for this pawn's properties
+	ATankPlayerController();
+
+	virtual void Tick(float DeltaTime) override;
+
+protected:
+	//Override Actors begin play
+	virtual void BeginPlay() override;
+
+private:
 
 	ATank* GetControlledTank() const; 
 
-	//Override Actors begin play
-	void BeginPlay() override;
+	
+
+	//Start Rotating the barrel towards where the crossheir is aimed at
+	void AiTowardsCrosshair();
 
 };

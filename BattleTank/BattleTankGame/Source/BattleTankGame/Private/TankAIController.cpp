@@ -3,11 +3,21 @@
 #include "Engine/World.h"
 #include "..\Public\TankAIController.h"
 
+//ATankAIController::ATankAIController()
+//{
+//	PrimaryActorTick.bCanEverTick = true;
+//}
 
 ATank* ATankAIController::GetControlledTank() const
 {
-
 	return Cast<ATank>(GetPawn());
+}
+
+ATank* ATankAIController::GetPlayerControlledTank() const
+{
+	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	return Cast<ATank>(PlayerPawn);
+
 }
 
 void ATankAIController::BeginPlay()
@@ -37,12 +47,10 @@ void ATankAIController::BeginPlay()
 	}
 }
 
-ATank* ATankAIController::GetPlayerControlledTank()
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+//void ATankAIController::Tick(float DeltaTime)
+//{
+//	Super::Tick(DeltaTime);
+//
+//	UE_LOG(LogTemp, Warning, TEXT("Tick"));
+//}
 
-
-		return Cast<ATank>(PlayerPawn);
-	
-
-}

@@ -5,11 +5,18 @@
 #include "..\Public\TankPlayerController.h"
 
 
+
+ATankPlayerController::ATankPlayerController()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
 ATank* ATankPlayerController::GetControlledTank() const 
 {
 
 	return Cast<ATank>(GetPawn());
 }
+
 
 void ATankPlayerController::BeginPlay()
 {
@@ -26,6 +33,19 @@ void ATankPlayerController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("Player Tank Controller possessing: %s"),*(ControlledTank->GetName()));
 	}
 
-	
+}
+
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Player EventTick"));
+	//TODO AimTowardsCrosshair();
+}
+
+void ATankPlayerController::AiTowardsCrosshair()
+{
+	if (!GetControlledTank()) { return; }
+
 
 }
