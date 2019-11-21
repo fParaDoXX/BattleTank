@@ -40,12 +40,28 @@ void ATankPlayerController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//UE_LOG(LogTemp, Warning, TEXT("Player EventTick"));
-	//TODO AimTowardsCrosshair();
+
+	AimTowardsCrosshair();
 }
 
-void ATankPlayerController::AiTowardsCrosshair()
+void ATankPlayerController::AimTowardsCrosshair()
 {
 	if (!GetControlledTank()) { return; }
 
+	FVector HitLocation; //Out Parameter
+	if (GetLineTraceHitLocation(HitLocation))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString());
+	}
+
+	//TODO Tell tank to aim at hitLocation
 
 }
+
+bool ATankPlayerController::GetLineTraceHitLocation(FVector& OutHitLocation) const
+{ 
+	//Test hit location
+	OutHitLocation = FVector(1.0);
+	return true;
+}
+

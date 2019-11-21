@@ -30,9 +30,10 @@ private:
 
 	ATank* GetControlledTank() const; 
 
-	
-
 	//Start Rotating the barrel towards where the crossheir is aimed at
-	void AiTowardsCrosshair();
+	void AimTowardsCrosshair();
+
+	//LineTrace Method
+	bool GetLineTraceHitLocation(FVector& OutHitLocation) const;
 
 };
